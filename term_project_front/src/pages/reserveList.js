@@ -48,8 +48,11 @@ class reserveList extends React.Component {
                     <div style={divStyle}>
                         <h3>{reserve.cafeterianame}</h3>
                         
-                        <Form.Label>시간</Form.Label>
+                        <Form.Label>날짜</Form.Label>
                         <Form.Text className="text-muted">{reserve.time_come}</Form.Text>
+
+                        <Form.Label>시간</Form.Label>
+                        <Form.Text className="text-muted">{reserve.time}</Form.Text>
                         
                         
                         <Form.Label>인원</Form.Label>

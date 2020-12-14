@@ -7,11 +7,18 @@ class Reserve extends React.Component {
     constructor(props) {
         super(props);
         this.state={
+            time_come:"",
             time:"",
             people:""
         }
   
     }
+
+    handleChangetimecome = e=>{
+        this.setState({
+            time_come:e.target.value
+        });
+    };
 
     handleChangetime = e=>{
         this.setState({
@@ -25,8 +32,8 @@ class Reserve extends React.Component {
         });
     };
 
-    async reseveCafeteria(name,time,people){
-        let echo_result=await request.ReserveCafeteria({name,time,people})
+    async reseveCafeteria(name,time_come,time,people){
+        let echo_result=await request.ReserveCafeteria({name,time_come,time,people})
     }
     
     render() {
@@ -38,8 +45,13 @@ class Reserve extends React.Component {
             return (
                     <Form style={formStyle}>
                         <p>
+                            <Form.Label>날짜 입력: </Form.Label>
+                            <input type='date' onChange={this.handleChangetimecome}></input>
+                        </p>
+
+                        <p>
                             <Form.Label>시간 입력: </Form.Label>
-                            <input type='text' onChange={this.handleChangetime}></input>
+                            <input type='time' onChange={this.handleChangetime}></input>
                         </p>
 
                         <p>
@@ -52,12 +64,13 @@ class Reserve extends React.Component {
                                 pathname: "/CafeteriaList",
                                 query: {
                                     name:this.props.location.query.name,
+                                    time_come:this.state.time_come,
                                     time:this.state.time,
                                     people:this.state.people
                                 }
                             }}
                             >
-                            <Button onClick={this.reseveCafeteria.bind(this,this.props.location.query.name,this.state.time,this.state.people)}>
+                            <Button onClick={this.reseveCafeteria.bind(this,this.props.location.query.name,this.state.time_come,this.state.time,this.state.people)}>
                                 제출
                             </Button>
                         </NavLink>

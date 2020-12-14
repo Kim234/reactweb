@@ -28,6 +28,9 @@ const cafeteriaSchema = new Schema({
       },
       time_come:{
           type:String
+      },
+      time:{
+          type:String
       }
 });
 

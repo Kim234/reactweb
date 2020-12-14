@@ -59,8 +59,9 @@ export async function getRecomCafeteria({spicy,soup,price}) {
 }
 
 /*식당 예약하기*/ 
-export async function ReserveCafeteria({name,time,people}) {
-    const result = await instance.post('/cafeteria/ReserveCafeteria',{name,time,people});
+export async function ReserveCafeteria({name,time_come,time,people}) {
+    console.log("hi"+time_come)
+    const result = await instance.post('/cafeteria/ReserveCafeteria',{name,time_come,time,people});
     return result.data
 }
 

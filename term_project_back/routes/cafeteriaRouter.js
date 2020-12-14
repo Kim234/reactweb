@@ -55,7 +55,7 @@ router.post('/getRecomCafeteria/', async(req, res)=> {
 
 });
 
-/*식당 예약하기 */
+/*식사 완료하기 */
 router.post('/finishEat/', async(req, res)=> {
 
     console.log("time"+req.body.time)
@@ -76,7 +76,7 @@ router.post('/finishEat/', async(req, res)=> {
 
 });
 
-/*식사 완료하기 */
+/*식당 예약하기 */
 router.post('/ReserveCafeteria/', async(req, res)=> {
 
     console.log("time"+req.body.time)
@@ -86,12 +86,13 @@ router.post('/ReserveCafeteria/', async(req, res)=> {
           {
             $set: {
               isReserve:true,
-              time_come:req.body.time,
+              time_come:req.body.time_come,
+              time:req.body.time,
               people_come:req.body.people    
             }
           }
         );
-        res.json({ message: "메뉴 평가가 되었습니다." });
+        res.json({ message: "식당예약이 되었습니다." });
       } catch (err) {
         console.log(err);
         res.json({ message: false });
@@ -124,7 +125,8 @@ router.post('/', async(req, res, next) =>{
             url:req.body.url,
             isReserve:req.body.isReserve,
             people_come:req.body.people_come,
-            time_come:req.body.time_come
+            time_come:req.body.time_come,
+            time:req.body.time
         }
 
         const cafeteria=new Cafeteria(obj);
