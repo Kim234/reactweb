@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import LoginForm from "./LoginForm";
-import reserveList from "./reserveList";
+import LoginForm from "../Components/LoginForm";
+import reserveList from "../Components/reserveList";
 import forAddform from "./ForAddform";
-import CafeteriaList from './CafeteriaList';
-import CafeteriaRate from './CafeteriaRate';
+import CafeteriaList from '../Components/CafeteriaList';
+import CafeteriaRate from '../Components/CafeteriaRate';
 import CafeteriaRateDo from '../Components/CafeteriaRateDo';
 import CafeteriaRateList from '../Components/CafeteriaRateList';
 import Recommend from '../Components/Recommend';
